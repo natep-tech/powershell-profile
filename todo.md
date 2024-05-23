@@ -1,5 +1,3 @@
-- Make a JSON of all modules installed in /Modules
-- Check for updates on any installed modules
 - Create a Functions folder and move each to its own file: 
 	```
 	Function load_my_functions {

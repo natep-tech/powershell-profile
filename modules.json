@@ -1,0 +1,975 @@
+[
+  {
+    "Name": "Microsoft.WinGet.Client",
+    "Version": "1.8.1133",
+    "Path": "C:\\Users\\Nate\\Documents\\PowerShell\\Modules\\Microsoft.WinGet.Client\\1.8.1133\\Microsoft.WinGet.Client.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2"
+  },
+  {
+    "Name": "Microsoft.WinGet.CommandNotFound",
+    "Version": "1.0.2.0",
+    "Path": "C:\\Users\\Nate\\Documents\\PowerShell\\Modules\\Microsoft.WinGet.CommandNotFound\\1.0.2.0\\Microsoft.WinGet.CommandNotFound.psd1",
+    "RequiredModules": "Microsoft.WinGet.Client",
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2"
+  },
+  {
+    "Name": "Terminal-Icons",
+    "Version": "0.11.0",
+    "Path": "C:\\Users\\Nate\\Documents\\PowerShell\\Modules\\Terminal-Icons\\0.11.0\\Terminal-Icons.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2"
+  },
+  {
+    "Name": "CimCmdlets",
+    "Version": "7.0.0.0",
+    "Path": "C:\\program files\\powershell\\7\\Modules\\CimCmdlets\\CimCmdlets.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "Microsoft.PowerShell.Archive",
+    "Version": "1.2.5",
+    "Path": "C:\\program files\\powershell\\7\\Modules\\Microsoft.PowerShell.Archive\\Microsoft.PowerShell.Archive.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "Microsoft.PowerShell.Diagnostics",
+    "Version": "7.0.0.0",
+    "Path": "C:\\program files\\powershell\\7\\Modules\\Microsoft.PowerShell.Diagnostics\\Microsoft.PowerShell.Diagnostics.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "Microsoft.PowerShell.Host",
+    "Version": "7.0.0.0",
+    "Path": "C:\\program files\\powershell\\7\\Modules\\Microsoft.PowerShell.Host\\Microsoft.PowerShell.Host.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "Microsoft.PowerShell.Management",
+    "Version": "7.0.0.0",
+    "Path": "C:\\program files\\powershell\\7\\Modules\\Microsoft.PowerShell.Management\\Microsoft.PowerShell.Management.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "Microsoft.PowerShell.PSResourceGet",
+    "Version": "1.0.4.1",
+    "Path": "C:\\program files\\powershell\\7\\Modules\\Microsoft.PowerShell.PSResourceGet\\Microsoft.PowerShell.PSResourceGet.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "Microsoft.PowerShell.Security",
+    "Version": "7.0.0.0",
+    "Path": "C:\\program files\\powershell\\7\\Modules\\Microsoft.PowerShell.Security\\Microsoft.PowerShell.Security.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "Microsoft.PowerShell.Utility",
+    "Version": "7.0.0.0",
+    "Path": "C:\\program files\\powershell\\7\\Modules\\Microsoft.PowerShell.Utility\\Microsoft.PowerShell.Utility.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "Microsoft.WSMan.Management",
+    "Version": "7.0.0.0",
+    "Path": "C:\\program files\\powershell\\7\\Modules\\Microsoft.WSMan.Management\\Microsoft.WSMan.Management.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "PackageManagement",
+    "Version": "1.4.8.1",
+    "Path": "C:\\program files\\powershell\\7\\Modules\\PackageManagement\\PackageManagement.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "PowerShellGet",
+    "Version": "2.2.5",
+    "Path": "C:\\program files\\powershell\\7\\Modules\\PowerShellGet\\PowerShellGet.psd1",
+    "RequiredModules": "PackageManagement",
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "PSDiagnostics",
+    "Version": "7.0.0.0",
+    "Path": "C:\\program files\\powershell\\7\\Modules\\PSDiagnostics\\PSDiagnostics.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "PSReadLine",
+    "Version": "2.3.5",
+    "Path": "C:\\program files\\powershell\\7\\Modules\\PSReadLine\\PSReadLine.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "ThreadJob",
+    "Version": "2.0.3",
+    "Path": "C:\\program files\\powershell\\7\\Modules\\ThreadJob\\ThreadJob.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "Azure",
+    "Version": "5.1.2",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\Azure\\5.1.2\\Azure.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "Azure.AnalysisServices",
+    "Version": "0.5.0",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\Azure.AnalysisServices\\0.5.0\\Azure.AnalysisServices.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "Azure.Storage",
+    "Version": "4.2.1",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\Azure.Storage\\4.2.1\\Azure.Storage.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM",
+    "Version": "5.7.0",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM\\5.7.0\\AzureRM.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.AnalysisServices",
+    "Version": "0.6.6",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.AnalysisServices\\0.6.6\\AzureRM.AnalysisServices.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.ApiManagement",
+    "Version": "5.1.2",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.ApiManagement\\5.1.2\\AzureRM.ApiManagement.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.ApplicationInsights",
+    "Version": "0.1.3",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.ApplicationInsights\\0.1.3\\AzureRM.ApplicationInsights.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.Automation",
+    "Version": "4.3.2",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.Automation\\4.3.2\\AzureRM.Automation.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.Backup",
+    "Version": "4.0.4",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.Backup\\4.0.4\\AzureRM.Backup.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.Batch",
+    "Version": "4.0.6",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.Batch\\4.0.6\\AzureRM.Batch.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.Billing",
+    "Version": "0.14.1",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.Billing\\0.14.1\\AzureRM.Billing.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.Cdn",
+    "Version": "4.2.2",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.Cdn\\4.2.2\\AzureRM.Cdn.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.CognitiveServices",
+    "Version": "0.9.4",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.CognitiveServices\\0.9.4\\AzureRM.CognitiveServices.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.Compute",
+    "Version": "4.6.0",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.Compute\\4.6.0\\AzureRM.Compute.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.Consumption",
+    "Version": "0.3.1",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.Consumption\\0.3.1\\AzureRM.Consumption.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.ContainerInstance",
+    "Version": "0.2.5",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.ContainerInstance\\0.2.5\\AzureRM.ContainerInstance.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.ContainerRegistry",
+    "Version": "1.0.4",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.ContainerRegistry\\1.0.4\\AzureRM.ContainerRegistry.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.DataFactories",
+    "Version": "4.2.2",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.DataFactories\\4.2.2\\AzureRM.DataFactories.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.DataFactoryV2",
+    "Version": "0.5.3",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.DataFactoryV2\\0.5.3\\AzureRM.DataFactoryV2.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.DataLakeAnalytics",
+    "Version": "4.2.3",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.DataLakeAnalytics\\4.2.3\\AzureRM.DataLakeAnalytics.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.DataLakeStore",
+    "Version": "5.2.0",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.DataLakeStore\\5.2.0\\AzureRM.DataLakeStore.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.DevTestLabs",
+    "Version": "4.0.4",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.DevTestLabs\\4.0.4\\AzureRM.DevTestLabs.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.Dns",
+    "Version": "4.1.2",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.Dns\\4.1.2\\AzureRM.Dns.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.EventGrid",
+    "Version": "0.3.2",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.EventGrid\\0.3.2\\AzureRM.EventGrid.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.EventHub",
+    "Version": "0.6.3",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.EventHub\\0.6.3\\AzureRM.EventHub.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.HDInsight",
+    "Version": "4.1.2",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.HDInsight\\4.1.2\\AzureRM.HDInsight.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.Insights",
+    "Version": "4.0.4",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.Insights\\4.0.4\\AzureRM.Insights.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.IotHub",
+    "Version": "3.1.2",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.IotHub\\3.1.2\\AzureRM.IotHub.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.KeyVault",
+    "Version": "4.3.0",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.KeyVault\\4.3.0\\AzureRM.KeyVault.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.LogicApp",
+    "Version": "4.0.3",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.LogicApp\\4.0.3\\AzureRM.LogicApp.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.MachineLearning",
+    "Version": "0.17.2",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.MachineLearning\\0.17.2\\AzureRM.MachineLearning.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.MachineLearningCompute",
+    "Version": "0.4.2",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.MachineLearningCompute\\0.4.2\\AzureRM.MachineLearningCompute.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.MarketplaceOrdering",
+    "Version": "0.2.1",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.MarketplaceOrdering\\0.2.1\\AzureRM.MarketplaceOrdering.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.Media",
+    "Version": "0.9.2",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.Media\\0.9.2\\AzureRM.Media.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.Network",
+    "Version": "5.4.2",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.Network\\5.4.2\\AzureRM.Network.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.NotificationHubs",
+    "Version": "4.1.1",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.NotificationHubs\\4.1.1\\AzureRM.NotificationHubs.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.OperationalInsights",
+    "Version": "4.3.2",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.OperationalInsights\\4.3.2\\AzureRM.OperationalInsights.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.PowerBIEmbedded",
+    "Version": "4.1.4",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.PowerBIEmbedded\\4.1.4\\AzureRM.PowerBIEmbedded.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.Profile",
+    "Version": "4.6.0",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.Profile\\4.6.0\\AzureRM.Profile.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.RecoveryServices",
+    "Version": "4.1.2",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.RecoveryServices\\4.1.2\\AzureRM.RecoveryServices.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.RecoveryServices.Backup",
+    "Version": "4.1.2",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.RecoveryServices.Backup\\4.1.2\\AzureRM.RecoveryServices.Backup.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.RecoveryServices.SiteRecovery",
+    "Version": "0.2.4",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.RecoveryServices.SiteRecovery\\0.2.4\\AzureRM.RecoveryServices.SiteRecovery.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.RedisCache",
+    "Version": "4.1.2",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.RedisCache\\4.1.2\\AzureRM.RedisCache.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.Relay",
+    "Version": "0.3.3",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.Relay\\0.3.3\\AzureRM.Relay.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.Resources",
+    "Version": "5.5.2",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.Resources\\5.5.2\\AzureRM.Resources.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.Scheduler",
+    "Version": "0.16.3",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.Scheduler\\0.16.3\\AzureRM.Scheduler.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.ServerManagement",
+    "Version": "4.1.2",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.ServerManagement\\4.1.2\\AzureRM.ServerManagement.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.ServiceBus",
+    "Version": "0.6.4",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.ServiceBus\\0.6.4\\AzureRM.ServiceBus.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.ServiceFabric",
+    "Version": "0.3.4",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.ServiceFabric\\0.3.4\\AzureRM.ServiceFabric.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.SiteRecovery",
+    "Version": "5.0.6",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.SiteRecovery\\5.0.6\\AzureRM.SiteRecovery.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.Sql",
+    "Version": "4.4.0",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.Sql\\4.4.0\\AzureRM.Sql.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.Storage",
+    "Version": "4.2.3",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.Storage\\4.2.3\\AzureRM.Storage.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.StreamAnalytics",
+    "Version": "4.0.4",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.StreamAnalytics\\4.0.4\\AzureRM.StreamAnalytics.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.Tags",
+    "Version": "4.0.1",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.Tags\\4.0.1\\AzureRM.Tags.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.TrafficManager",
+    "Version": "4.0.3",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.TrafficManager\\4.0.3\\AzureRM.TrafficManager.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.UsageAggregates",
+    "Version": "4.0.2",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.UsageAggregates\\4.0.2\\AzureRM.UsageAggregates.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "AzureRM.Websites",
+    "Version": "4.2.2",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\AzureRM.Websites\\4.2.2\\AzureRM.Websites.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2/"
+  },
+  {
+    "Name": "Microsoft.PowerShell.Operation.Validation",
+    "Version": "1.0.1",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\Microsoft.PowerShell.Operation.Validation\\1.0.1\\Microsoft.PowerShell.Operation.Validation.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "Microsoft.PowerToys.Configure",
+    "Version": "0.81.0",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\Microsoft.PowerToys.Configure\\0.81.0\\Microsoft.PowerToys.Configure.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "PackageManagement",
+    "Version": "1.0.0.1",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\PackageManagement\\1.0.0.1\\PackageManagement.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "Pester",
+    "Version": "3.4.0",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\Pester\\3.4.0\\Pester.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "PowerShellGet",
+    "Version": "1.0.0.1",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\PowerShellGet\\1.0.0.1\\PowerShellGet.psd1",
+    "RequiredModules": "PackageManagement",
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "PSDsHook",
+    "Version": "0.2.1",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\PSDsHook\\0.2.1\\PSDsHook.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2"
+  },
+  {
+    "Name": "PSReadLine",
+    "Version": "2.0.0",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\PSReadLine\\2.0.0\\PSReadLine.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "Terminal-Icons",
+    "Version": "0.11.0",
+    "Path": "C:\\Program Files\\WindowsPowerShell\\Modules\\Terminal-Icons\\0.11.0\\Terminal-Icons.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": "https://www.powershellgallery.com/api/v2"
+  },
+  {
+    "Name": "AppBackgroundTask",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\AppBackgroundTask\\AppBackgroundTask.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "AssignedAccess",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\AssignedAccess\\AssignedAccess.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "BitLocker",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\BitLocker\\BitLocker.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "BitsTransfer",
+    "Version": "2.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\BitsTransfer\\BitsTransfer.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "BranchCache",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\BranchCache\\BranchCache.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "ConfigDefenderPerformance",
+    "Version": "1.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\ConfigDefenderPerformance\\ConfigDefenderPerformance.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "DefenderPerformance",
+    "Version": "1.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\DefenderPerformance\\DefenderPerformance.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "DeliveryOptimization",
+    "Version": "1.0.3.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\DeliveryOptimization\\DeliveryOptimization.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "DirectAccessClientComponents",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\DirectAccessClientComponents\\DirectAccessClientComponents.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "Dism",
+    "Version": "3.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\Dism\\Dism.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "DnsClient",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\DnsClient\\DnsClient.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "EventTracingManagement",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\EventTracingManagement\\EventTracingManagement.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "Get-NetView",
+    "Version": "2022.3.14.193",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\Get-NetView\\Get-NetView.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "IISAdministration",
+    "Version": "1.1.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\IISAdministration\\IISAdministration.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "International",
+    "Version": "2.1.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\International\\International.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "Kds",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\Kds\\Kds.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "LanguagePackManagement",
+    "Version": "1.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\LanguagePackManagement\\LanguagePackManagement.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "LAPS",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\LAPS\\LAPS.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "Microsoft.PowerShell.LocalAccounts",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\Microsoft.PowerShell.LocalAccounts\\1.0.0.0\\Microsoft.PowerShell.LocalAccounts.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "Microsoft.Windows.Bcd.Cmdlets",
+    "Version": "1.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\Microsoft.Windows.Bcd.Cmdlets\\Microsoft.Windows.Bcd.Cmdlets.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "MMAgent",
+    "Version": "1.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\MMAgent\\MMAgent.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "NetAdapter",
+    "Version": "2.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\NetAdapter\\NetAdapter.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "NetConnection",
+    "Version": "2.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\NetConnection\\NetConnection.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "NetEventPacketCapture",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\NetEventPacketCapture\\NetEventPacketCapture.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "NetLbfo",
+    "Version": "2.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\NetLbfo\\NetLbfo.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "NetNat",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\NetNat\\NetNat.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "NetQos",
+    "Version": "2.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\NetQos\\NetQos.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "NetSecurity",
+    "Version": "2.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\NetSecurity\\NetSecurity.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "NetSwitchTeam",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\NetSwitchTeam\\NetSwitchTeam.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "NetTCPIP",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\NetTCPIP\\NetTCPIP.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "NetworkConnectivityStatus",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\NetworkConnectivityStatus\\NetworkConnectivityStatus.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "NetworkSwitchManager",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\NetworkSwitchManager\\NetworkSwitchManager.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "NetworkTransition",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\NetworkTransition\\NetworkTransition.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "PcsvDevice",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\PcsvDevice\\PcsvDevice.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "PKI",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\PKI\\PKI.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "PnpDevice",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\PnpDevice\\PnpDevice.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "PrintManagement",
+    "Version": "1.1",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\PrintManagement\\PrintManagement.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "ProcessMitigations",
+    "Version": "1.0.12",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\ProcessMitigations\\ProcessMitigations.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "Provisioning",
+    "Version": "3.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\Provisioning\\Provisioning.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "ScheduledTasks",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\ScheduledTasks\\ScheduledTasks.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "SecureBoot",
+    "Version": "2.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\SecureBoot\\SecureBoot.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "SmbShare",
+    "Version": "2.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\SmbShare\\SmbShare.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "SmbWitness",
+    "Version": "2.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\SmbWitness\\SmbWitness.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "StartLayout",
+    "Version": "1.0.0.1",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\StartLayout\\StartLayout.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "Storage",
+    "Version": "2.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\Storage\\Storage.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "TLS",
+    "Version": "2.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\TLS\\TLS.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "TroubleshootingPack",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\TroubleshootingPack\\TroubleshootingPack.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "TrustedPlatformModule",
+    "Version": "2.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\TrustedPlatformModule\\TrustedPlatformModule.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "UEV",
+    "Version": "2.1.639.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\UEV\\UEV.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "VpnClient",
+    "Version": "2.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\VpnClient\\VpnClient.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "Wdac",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\Wdac\\Wdac.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "Whea",
+    "Version": "2.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\Whea\\Whea.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "WindowsDeveloperLicense",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\WindowsDeveloperLicense\\WindowsDeveloperLicense.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "WindowsErrorReporting",
+    "Version": "1.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\WindowsErrorReporting\\WindowsErrorReporting.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "WindowsSearch",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\WindowsSearch\\WindowsSearch.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "WindowsUpdate",
+    "Version": "1.0.0.0",
+    "Path": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\WindowsUpdate\\WindowsUpdate.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  },
+  {
+    "Name": "SQLPS",
+    "Version": "15.0",
+    "Path": "C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\PowerShell\\Modules\\SQLPS\\SQLPS.psd1",
+    "RequiredModules": null,
+    "RepositorySourceLocation": null
+  }
+]
