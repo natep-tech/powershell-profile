@@ -18,3 +18,16 @@ After running the script, you'll find a downloaded `cove.zip` file in the folder
 2. Locate and install the nerd fonts.
 
 Now, enjoy your enhanced and stylish PowerShell experience! 🚀
+
+# TODO List
+
+- [ ] Create a Functions folder and move each to its own file: 
+	```
+	Function load_my_functions {
+	$functiondir = "$env:USERPROFILE\functions" 
+	gci (split-path $functiondir) -filter 'func_*.ps1' -recurse | foreach-object { . $_ }
+	}
+
+	New-Alias -Name lf -Value load_my_functions
+	```
+- [ ] Add Connection segment to OhMyPosh theme.
