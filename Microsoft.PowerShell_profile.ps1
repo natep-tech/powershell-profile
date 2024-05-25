@@ -1,11 +1,8 @@
-### PowerShell Profile
-### Version 1.07
+### PowerShell Profile Refactor
+### Version 1.03 - Refactored
 
 # Initial GitHub.com connectivity check with 1 second timeout
 $canConnectToGitHub = Test-Connection github.com -Count 1 -Quiet -TimeoutSeconds 1
-
-# Path to folder that contains the powershell profile
-$PROFILEFOLDER = $PROFILE | Split-Path
 
 # Import Modules and External Profiles
 # Ensure Terminal-Icons module is installed before importing
@@ -17,28 +14,6 @@ $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
     Import-Module "$ChocolateyProfile"
 }
-
-# Get details on installed modules and save to modules.json
-function Get-ModuleInfo {
-    # Get the path from the current PowerShell profile
-    $path = $PROFILE | Split-Path
-
-    # Get all installed modules
-    $modules = Get-Module -ListAvailable | ForEach-Object {
-        $moduleName = $_.Name
-        [ordered]@{
-            Name = $moduleName
-            Version = $_.Version.ToString()
-            Path = $_.Path
-            RequiredModules = $_.RequiredModules | ForEach-Object { $_.Name }
-            RepositorySourceLocation = $_.RepositorySourceLocation
-        }
-    }
-
-    # Convert the list of modules to JSON and save it to a file
-    $modules | ConvertTo-Json -Depth 5 | Set-Content -Path "$path/modules.json"
-}
-Get-ModuleInfo
 
 # Check for Profile Updates
 function Update-Profile {
@@ -63,88 +38,6 @@ function Update-Profile {
     }
 }
 Update-Profile
-
-function Find-ModuleUpdates {
-    Write-Host "Checking for module updates..." -ForegroundColor Cyan
-
-    # Get all installed modules
-    $installedModules = Get-InstalledModule
-
-    # Initialize an array to hold update information
-    $updatesAvailable = @()
-
-    # Check for updates for each installed module
-    foreach ($module in $installedModules) {
-        # Find the latest version available in the repository
-        $latestModule = Find-Module -Name $module.Name
-
-        # Compare versions
-        if ([version]$module.Version -lt [version]$latestModule.Version) {
-            # Create a custom object for the module with an update
-            $updateInfo = [PSCustomObject]@{
-                ModuleName      = $module.Name
-                CurrentVersion  = $module.Version
-                NewVersion      = $latestModule.Version
-            }
-            # Add the object to the updates array
-            $updatesAvailable += $updateInfo
-        }
-    }
-
-    # Output the updates in a table format, if any
-    if ($updatesAvailable.Count -gt 0) {
-        $updatesAvailable | Format-Table -Property ModuleName, CurrentVersion, NewVersion
-        Write-Host "Run 'Update-InstalledModules' to update your modules. (If you only want to update certain ones, use the '-ConfirmEachUpdate' param)" -ForegroundColor Yellow
-    } else {
-        Write-Host "Your modules are all up to date." -ForegroundColor Green
-    }
-}
-Find-ModuleUpdates
-
-function Update-InstalledModules {
-    param(
-        [switch]$ConfirmEachUpdate
-    )
-
-    Write-Host "Checking for module updates..." -ForegroundColor Cyan
-
-    # Get all installed modules
-    $installedModules = Get-InstalledModule
-
-    # Flag to check if any updates were made
-    $updatesMade = $false
-
-    # Check for updates for each installed module
-    foreach ($module in $installedModules) {
-        # Find the latest version available in the repository
-        $latestModule = Find-Module -Name $module.Name
-
-        # Compare versions
-        if ([version]$module.Version -lt [version]$latestModule.Version) {
-            if ($ConfirmEachUpdate) {
-                # Ask for user confirmation before updating
-                $updateConfirmation = Read-Host "Update available for $($module.Name) from $($module.Version) to $($latestModule.Version). Do you want to update? (Y/N)"
-                if ($updateConfirmation -ne 'Y') {
-                    continue
-                }
-            }
-            Write-Host "Updating $($module.Name) from $($module.Version) to $($latestModule.Version)..." -ForegroundColor Yellow
-            try {
-                Update-Module -Name $module.Name
-                Write-Host "Updated $($module.Name) successfully." -ForegroundColor Green
-                $updatesMade = $true
-            } catch {
-                Write-Host "Failed to update $($module.Name): $_" -ForegroundColor Red
-            }
-        }
-    }
-
-    # Check if any updates were made
-    if (-not $updatesMade) {
-        Write-Host "Your modules are all up to date." -ForegroundColor Green
-    }
-}
-
 
 function Update-PowerShell {
     if (-not $global:canConnectToGitHub) {
@@ -179,10 +72,9 @@ Update-PowerShell
 
 # Admin Check and Prompt Customization
 $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
-function Get-UnixPrompt {
+function prompt {
     if ($isAdmin) { "[" + (Get-Location) + "] # " } else { "[" + (Get-Location) + "] $ " }
 }
-Set-Alias -Name prompt -Value Get-UnixPrompt
 $adminSuffix = if ($isAdmin) { " [ADMIN]" } else { "" }
 $Host.UI.RawUI.WindowTitle = "PowerShell {0}$adminSuffix" -f $PSVersionTable.PSVersion.ToString()
 
@@ -204,46 +96,38 @@ $EDITOR = if (Test-CommandExists nvim) { 'nvim' }
           else { 'notepad' }
 Set-Alias -Name vim -Value $EDITOR
 
-function Edit-CurrentUserAllHostsProfile {
+function Edit-Profile {
     vim $PROFILE.CurrentUserAllHosts
 }
-
-function Set-File($file) { "" | Out-File $file -Encoding ASCII }
-Set-Alias -Name touch -Value Set-File
-
-function Find-FilePath($name) {
+function touch($file) { "" | Out-File $file -Encoding ASCII }
+function ff($name) {
     Get-ChildItem -recurse -filter "*${name}*" -ErrorAction SilentlyContinue | ForEach-Object {
         Write-Output "$($_.directory)\$($_)"
     }
 }
-Set-Alias -Name ff -Value Find-FilePath
 
 # Network Utilities
 function Get-PubIP { (Invoke-WebRequest http://ifconfig.me/ip).Content }
 
 # System Utilities
-function Get-SystemUptime {
+function uptime {
     if ($PSVersionTable.PSVersion.Major -eq 5) {
         Get-WmiObject win32_operatingsystem | Select-Object @{Name='LastBootUpTime'; Expression={$_.ConverttoDateTime($_.lastbootuptime)}} | Format-Table -HideTableHeaders
     } else {
         net statistics workstation | Select-String "since" | ForEach-Object { $_.ToString().Replace('Statistics since ', '') }
     }
 }
-Set-Alias -Name uptime -Value Get-SystemUptime
 
-function Restart-Profile {
+function reload-profile {
     & $profile
 }
-Set-Alias -Name reload-profile -Value Restart-Profile
 
-function Expand-ZipFile ($file) {
+function unzip ($file) {
     Write-Output("Extracting", $file, "to", $pwd)
     $fullFile = Get-ChildItem -Path $pwd -Filter $file | ForEach-Object { $_.FullName }
     Expand-Archive -Path $fullFile -DestinationPath $pwd
 }
-Set-Alias -Name unzip -Value Expand-ZipFile
-
-function Deploy-HasteBin {
+function hb {
     if ($args.Length -eq 0) {
         Write-Error "No file path specified."
         return
@@ -268,128 +152,102 @@ function Deploy-HasteBin {
         Write-Error "Failed to upload the document. Error: $_"
     }
 }
-Set-Alias -Name hb -Value Deploy-HasteBin
-
-function Find-FilePattern($regex, $dir) {
+function grep($regex, $dir) {
     if ( $dir ) {
         Get-ChildItem $dir | select-string $regex
         return
     }
     $input | select-string $regex
 }
-Set-Alias -Name grep -Value Find-FilePattern
 
-Set-Alias -Name df -Value Get-Volume
+function df {
+    get-volume
+}
 
-function Edit-TextStream($file, $find, $replace) {
+function sed($file, $find, $replace) {
     (Get-Content $file).replace("$find", $replace) | Set-Content $file
 }
-Set-Alias -Name sed -Value Edit-TextStream
 
-function Find-Executable($name) {
+function which($name) {
     Get-Command $name | Select-Object -ExpandProperty Definition
 }
-Set-Alias -Name which -Value Find-Executable
 
-function Export-Variable($name, $value) {
+function export($name, $value) {
     set-item -force -path "env:$name" -value $value;
 }
-Set-Alias -Name export -Value Export-Variable
 
-function Stop-SelectedProcess($name) {
+function pkill($name) {
     Get-Process $name -ErrorAction SilentlyContinue | Stop-Process
 }
-Set-Alias -Name pkill -Value Stop-SelectedProcess
 
-function Find-ProcessID($name) {
+function pgrep($name) {
     Get-Process $name
 }
-Set-Alias -Name pgrep -Value Find-ProcessID
 
-function Get-nFirstFileLines {
+function head {
   param($Path, $n = 10)
   Get-Content $Path -Head $n
 }
-Set-Alias -Name head -Value Get-nFileLines
 
-function Get-nLastFileLines {
+function tail {
   param($Path, $n = 10)
   Get-Content $Path -Tail $n
 }
-Set-Alias -Name tail -Value Get-nLastFileLines
 
 # Quick File Creation
-function New-File { param($name) New-Item -ItemType "file" -Path . -Name $name }
-Set-Alias -Name nf -Value New-File
+function nf { param($name) New-Item -ItemType "file" -Path . -Name $name }
 
 # Directory Management
-function New-ChangeDirectory { param($dir) mkdir $dir -Force; Set-Location $dir }
-Set-Alias -Name mkcd -Value New-ChangeDirectory
+function mkcd { param($dir) mkdir $dir -Force; Set-Location $dir }
 
 ### Quality of Life Aliases
 
 # Navigation Shortcuts
-function Set-UserDocumentsLocation { Set-Location -Path $HOME\Documents }
-Set-Alias -Name docs -Value Set-UserDocumentsLocation
+function docs { Set-Location -Path $HOME\Documents }
 
-function Set-UserDesktopLocation { Set-Location -Path $HOME\Desktop }
-Set-Alias -Name dtop -Value Set-UserDesktopLocation
+function dtop { Set-Location -Path $HOME\Desktop }
 
 # Quick Access to Editing the Profile
-function Edit-Profile { vim $PROFILE }
-Set-Alias -Name ep -Value Edit-Profile
+function ep { vim $PROFILE }
 
 # Simplified Process Management
-function Stop-MultipleProcesses { Stop-Process -Name $args[0] }
-Set-Alias -Name k9 -Value Stop-MultipleProcesses
+function k9 { Stop-Process -Name $args[0] }
 
 # Enhanced Listing
-function Get-AllChildItems { Get-ChildItem -Path . -Force | Format-Table -AutoSize }
-Set-Alias -Name la -Value Get-AllChildItems
-
-function Get-HiddenChildItems { Get-ChildItem -Path . -Force -Hidden | Format-Table -AutoSize }
-Set-Alias -Name ll -Value Get-HiddenChildItems
+function la { Get-ChildItem -Path . -Force | Format-Table -AutoSize }
+function ll { Get-ChildItem -Path . -Force -Hidden | Format-Table -AutoSize }
 
 # Git Shortcuts
-function Get-GitStatus { git status }
-Set-Alias -Name gs -Value Get-GitStatus
+function gs { git status }
 
-function Add-AllGitChanges { git add . }
-Set-Alias -Name ga -Value Add-AllGitChanges
+function ga { git add . }
 
-function Submit-GitCommit { param($m) git commit -m "$m" }
-Set-Alias -Name gc -Value Submit-GitCommit
+function gc { param($m) git commit -m "$m" }
 
-function Publish-GitChanges { git push }
-Set-Alias -Name gp -Value Publish-GitChanges
+function gp { git push }
 
-function Show-GitHubDirectory { z Github }
-Set-Alias -Name g -Value Show-GitHubDirectory
+function g { z Github }
 
-function Submit-AllGitChanges {
+function gcom {
     git add .
     git commit -m "$args"
 }
-Set-Alias -Name gcom -Value Submit-AllGitChanges
-
-function Publish-AllGitChanges {
+function lazyg {
     git add .
     git commit -m "$args"
     git push
 }
-Set-Alias -Name lazyg -Value Publish-AllGitChanges
 
 # Quick Access to System Information
-Set-Alias -Name sysinfo -Value Get-ComputerInfo
+function sysinfo { Get-ComputerInfo }
 
 # Networking Utilities
-Set-Alias -Name flushdns -Value Clear-DnsClientCache
+function flushdns { Clear-DnsClientCache }
 
 # Clipboard Utilities
-function Set-ClipboardToArgs { Set-Clipboard $args[0] }
-Set-Alias -Name cpy -Value Set-ClipboardToArgs
+function cpy { Set-Clipboard $args[0] }
 
-Set-Alias -Name pst -Value Get-Clipboard
+function pst { Get-Clipboard }
 
 # Enhanced PowerShell Experience
 Set-PSReadLineOption -Colors @{
@@ -412,9 +270,3 @@ if (Get-Command zoxide -ErrorAction SilentlyContinue) {
         Write-Error "Failed to install zoxide. Error: $_"
     }
 }
-
-# PowerToys CommandNotFound module
-#f45873b3-b655-43a6-b217-97c00aa0db58 PowerToys CommandNotFound module
-
-Import-Module -Name Microsoft.WinGet.CommandNotFound
-#f45873b3-b655-43a6-b217-97c00aa0db58
