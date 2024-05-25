@@ -1,8 +1,11 @@
 ### PowerShell Profile
-### Version 1.05
+### Version 1.07
 
 # Initial GitHub.com connectivity check with 1 second timeout
 $canConnectToGitHub = Test-Connection github.com -Count 1 -Quiet -TimeoutSeconds 1
+
+# Path to folder that contains the powershell profile
+$PROFILEFOLDER = $PROFILE | Split-Path
 
 # Import Modules and External Profiles
 # Ensure Terminal-Icons module is installed before importing
@@ -45,7 +48,7 @@ function Update-Profile {
     }
 
     try {
-        $url = "https://raw.githubusercontent.com/natep-tech/powershell-profile/main/Microsoft.PowerShell_profile.ps1"
+        $url = "https://raw.githubusercontent.com/ChrisTitusTech/powershell-profile/main/Microsoft.PowerShell_profile.ps1"
         $oldhash = Get-FileHash $PROFILE
         Invoke-RestMethod $url -OutFile "$env:temp/Microsoft.PowerShell_profile.ps1"
         $newhash = Get-FileHash "$env:temp/Microsoft.PowerShell_profile.ps1"
@@ -61,7 +64,7 @@ function Update-Profile {
 }
 Update-Profile
 
-function Check-ModuleUpdates {
+function Find-ModuleUpdates {
     Write-Host "Checking for module updates..." -ForegroundColor Cyan
 
     # Get all installed modules
@@ -96,7 +99,7 @@ function Check-ModuleUpdates {
         Write-Host "Your modules are all up to date." -ForegroundColor Green
     }
 }
-Check-ModuleUpdates
+Find-ModuleUpdates
 
 function Update-InstalledModules {
     param(
@@ -176,9 +179,10 @@ Update-PowerShell
 
 # Admin Check and Prompt Customization
 $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
-function prompt {
+function Get-UnixPrompt {
     if ($isAdmin) { "[" + (Get-Location) + "] # " } else { "[" + (Get-Location) + "] $ " }
 }
+Set-Alias -Name prompt -Value Get-UnixPrompt
 $adminSuffix = if ($isAdmin) { " [ADMIN]" } else { "" }
 $Host.UI.RawUI.WindowTitle = "PowerShell {0}$adminSuffix" -f $PSVersionTable.PSVersion.ToString()
 
@@ -200,38 +204,46 @@ $EDITOR = if (Test-CommandExists nvim) { 'nvim' }
           else { 'notepad' }
 Set-Alias -Name vim -Value $EDITOR
 
-function Edit-Profile {
+function Edit-CurrentUserAllHostsProfile {
     vim $PROFILE.CurrentUserAllHosts
 }
-function touch($file) { "" | Out-File $file -Encoding ASCII }
-function ff($name) {
+
+function Set-File($file) { "" | Out-File $file -Encoding ASCII }
+Set-Alias -Name touch -Value Set-File
+
+function Find-FilePath($name) {
     Get-ChildItem -recurse -filter "*${name}*" -ErrorAction SilentlyContinue | ForEach-Object {
         Write-Output "$($_.directory)\$($_)"
     }
 }
+Set-Alias -Name ff -Value Find-FilePath
 
 # Network Utilities
 function Get-PubIP { (Invoke-WebRequest http://ifconfig.me/ip).Content }
 
 # System Utilities
-function uptime {
+function Get-SystemUptime {
     if ($PSVersionTable.PSVersion.Major -eq 5) {
         Get-WmiObject win32_operatingsystem | Select-Object @{Name='LastBootUpTime'; Expression={$_.ConverttoDateTime($_.lastbootuptime)}} | Format-Table -HideTableHeaders
     } else {
         net statistics workstation | Select-String "since" | ForEach-Object { $_.ToString().Replace('Statistics since ', '') }
     }
 }
+Set-Alias -Name uptime -Value Get-SystemUptime
 
-function reload-profile {
+function Restart-Profile {
     & $profile
 }
+Set-Alias -Name reload-profile -Value Restart-Profile
 
-function unzip ($file) {
+function Expand-ZipFile ($file) {
     Write-Output("Extracting", $file, "to", $pwd)
     $fullFile = Get-ChildItem -Path $pwd -Filter $file | ForEach-Object { $_.FullName }
     Expand-Archive -Path $fullFile -DestinationPath $pwd
 }
-function hb {
+Set-Alias -Name unzip -Value Expand-ZipFile
+
+function Deploy-HasteBin {
     if ($args.Length -eq 0) {
         Write-Error "No file path specified."
         return
@@ -256,102 +268,128 @@ function hb {
         Write-Error "Failed to upload the document. Error: $_"
     }
 }
-function grep($regex, $dir) {
+Set-Alias -Name hb -Value Deploy-HasteBin
+
+function Find-FilePattern($regex, $dir) {
     if ( $dir ) {
         Get-ChildItem $dir | select-string $regex
         return
     }
     $input | select-string $regex
 }
+Set-Alias -Name grep -Value Find-FilePattern
 
-function df {
-    get-volume
-}
+Set-Alias -Name df -Value Get-Volume
 
-function sed($file, $find, $replace) {
+function Edit-TextStream($file, $find, $replace) {
     (Get-Content $file).replace("$find", $replace) | Set-Content $file
 }
+Set-Alias -Name sed -Value Edit-TextStream
 
-function which($name) {
+function Find-Executable($name) {
     Get-Command $name | Select-Object -ExpandProperty Definition
 }
+Set-Alias -Name which -Value Find-Executable
 
-function export($name, $value) {
+function Export-Variable($name, $value) {
     set-item -force -path "env:$name" -value $value;
 }
+Set-Alias -Name export -Value Export-Variable
 
-function pkill($name) {
+function Stop-SelectedProcess($name) {
     Get-Process $name -ErrorAction SilentlyContinue | Stop-Process
 }
+Set-Alias -Name pkill -Value Stop-SelectedProcess
 
-function pgrep($name) {
+function Find-ProcessID($name) {
     Get-Process $name
 }
+Set-Alias -Name pgrep -Value Find-ProcessID
 
-function head {
+function Get-nFirstFileLines {
   param($Path, $n = 10)
   Get-Content $Path -Head $n
 }
+Set-Alias -Name head -Value Get-nFileLines
 
-function tail {
+function Get-nLastFileLines {
   param($Path, $n = 10)
   Get-Content $Path -Tail $n
 }
+Set-Alias -Name tail -Value Get-nLastFileLines
 
 # Quick File Creation
-function nf { param($name) New-Item -ItemType "file" -Path . -Name $name }
+function New-File { param($name) New-Item -ItemType "file" -Path . -Name $name }
+Set-Alias -Name nf -Value New-File
 
 # Directory Management
-function mkcd { param($dir) mkdir $dir -Force; Set-Location $dir }
+function New-ChangeDirectory { param($dir) mkdir $dir -Force; Set-Location $dir }
+Set-Alias -Name mkcd -Value New-ChangeDirectory
 
 ### Quality of Life Aliases
 
 # Navigation Shortcuts
-function docs { Set-Location -Path $HOME\Documents }
+function Set-UserDocumentsLocation { Set-Location -Path $HOME\Documents }
+Set-Alias -Name docs -Value Set-UserDocumentsLocation
 
-function dtop { Set-Location -Path $HOME\Desktop }
+function Set-UserDesktopLocation { Set-Location -Path $HOME\Desktop }
+Set-Alias -Name dtop -Value Set-UserDesktopLocation
 
 # Quick Access to Editing the Profile
-function ep { vim $PROFILE }
+function Edit-Profile { vim $PROFILE }
+Set-Alias -Name ep -Value Edit-Profile
 
 # Simplified Process Management
-function k9 { Stop-Process -Name $args[0] }
+function Stop-MultipleProcesses { Stop-Process -Name $args[0] }
+Set-Alias -Name k9 -Value Stop-MultipleProcesses
 
 # Enhanced Listing
-function la { Get-ChildItem -Path . -Force | Format-Table -AutoSize }
-function ll { Get-ChildItem -Path . -Force -Hidden | Format-Table -AutoSize }
+function Get-AllChildItems { Get-ChildItem -Path . -Force | Format-Table -AutoSize }
+Set-Alias -Name la -Value Get-AllChildItems
+
+function Get-HiddenChildItems { Get-ChildItem -Path . -Force -Hidden | Format-Table -AutoSize }
+Set-Alias -Name ll -Value Get-HiddenChildItems
 
 # Git Shortcuts
-function gs { git status }
+function Get-GitStatus { git status }
+Set-Alias -Name gs -Value Get-GitStatus
 
-function ga { git add . }
+function Add-AllGitChanges { git add . }
+Set-Alias -Name ga -Value Add-AllGitChanges
 
-function gc { param($m) git commit -m "$m" }
+function Submit-GitCommit { param($m) git commit -m "$m" }
+Set-Alias -Name gc -Value Submit-GitCommit
 
-function gp { git push }
+function Publish-GitChanges { git push }
+Set-Alias -Name gp -Value Publish-GitChanges
 
-function g { z Github }
+function Show-GitHubDirectory { z Github }
+Set-Alias -Name g -Value Show-GitHubDirectory
 
-function gcom {
+function Submit-AllGitChanges {
     git add .
     git commit -m "$args"
 }
-function lazyg {
+Set-Alias -Name gcom -Value Submit-AllGitChanges
+
+function Publish-AllGitChanges {
     git add .
     git commit -m "$args"
     git push
 }
+Set-Alias -Name lazyg -Value Publish-AllGitChanges
 
 # Quick Access to System Information
-function sysinfo { Get-ComputerInfo }
+Set-Alias -Name sysinfo -Value Get-ComputerInfo
 
 # Networking Utilities
-function flushdns { Clear-DnsClientCache }
+Set-Alias -Name flushdns -Value Clear-DnsClientCache
 
 # Clipboard Utilities
-function cpy { Set-Clipboard $args[0] }
+function Set-ClipboardToArgs { Set-Clipboard $args[0] }
+Set-Alias -Name cpy -Value Set-ClipboardToArgs
 
-function pst { Get-Clipboard }
+Set-Alias -Name pst -Value Get-Clipboard
 
 # Enhanced PowerShell Experience
 Set-PSReadLineOption -Colors @{
